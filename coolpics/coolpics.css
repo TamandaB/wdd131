@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+:root {
+  --primary-color: #52489c;
+  --secondary-color: #59c3c3;
+  --accent-color: #f45b69;
+  --text-dark: #333;
+  --text-light: #ebebeb;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: 'Mooli', sans-serif;
+}
+
+body {
+  font-family: var(--primary-font);
+  font-size: 1.2em;
+}
+.title h2{
+  text-align: center;
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  color: #fff;
+  margin: 0.5rem 0;
+}
+a {
+  color: #ebebeb;
+  margin: 0 20px;
+  text-decoration: underline;
+  display: block;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, min-max(250px,1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+.gallery img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 3px solid #52489c;
+    border-radius: 10px;
+    padding: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+h2 {
+  background: none;
+  border: none;
+  padding: 0;
+  font: var(--primary-font);;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+main{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+header, footer {
+  background-color: #52489c;
+  color: #ebebeb;
+}
+
+nav {
+  color: #ebebeb;
+  text-align: center;
+}
+nav a {
+    display: block;
+    margin: 0.5rem 0;
+    text-decoration: underline;
+    text-align: center;
+}
+
+h1 {
+  color: #ebebeb;
+  font-family: var(--secondary-font);
+  text-align: center;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+h3 {
+  font-family: var(--secondary-font);
+  color: black;
+}
+
+img {
+  max-width: 100%;
+  height: 250px;
+  width: 250px;
+  display: block;
+  object-fit: cover;
+}
+
+@media (min-width: 500px) {
+    .gallery{
+      grid-template-columns: 1fr ;
+    }
+  
+    nav a {
+      font-size: 1.5em;
+      display: inline;
+      margin: 0 20px;
+    }
+  }
+  @media (min-width: 600px) {
+    .gallery{
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    nav a {
+      display: none;
+    }
+  }
+  @media (min-width: 800px) {
+    .gallery{
+       grid-template-columns: 1fr 1fr 1fr;
+   }
+    nav{
+        display: flex;
+        justify-content: center;
+        gap: 2rem; 
+        flex-wrap: wrap; 
+    }
+   nav a {
+       font-size: 1.5em;
+       display: block;
+       margin: 0 20px;
+  }
+    .title h2{
+        text-align: center;
+        font-family: var(--secondary-font);
+        font-weight: bold;
+        color: #fff;
+        margin-top: 0.5rem;
+    }
+ }
+ 
