@@ -53,6 +53,9 @@ body {
     margin-left: 1rem;
     list-style: none;
   }
+  .review-date{
+    font-size: medium;
+  }
   
   .main-nav a {
     text-decoration: none;
