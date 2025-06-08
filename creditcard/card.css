@@ -1,0 +1,107 @@
+/* General Styling */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    background-color: #f4f4f4;
+  }
+  
+  .card-form {
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .main-grid {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+  }
+  
+  /* Card Front */
+  .card-front-grid {
+    display: grid;
+    grid-template-areas:
+      "total logo"
+      "number number"
+      "holder expire";
+    grid-template-columns: 2fr 1fr 1fr;
+    background-color: #ddd;
+    padding: 16px;
+    border-radius: 10px;
+    gap: 12px;
+  }
+  
+  .total {
+    grid-area: total;
+    font-weight: bold;
+  }
+  
+  .card-logo {
+    grid-area: logo;
+    text-align: right;
+    font-size: 24px;
+  }
+  
+  .card-number {
+    grid-area: number;
+  }
+  
+  .card-holder {
+    grid-area: holder;
+  }
+  
+  .expiration {
+    grid-area: expire;
+  }
+  
+  .exp-inputs {
+    display: flex;
+    gap: 8px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+  }
+  
+  /* Card Back */
+  .card-back-grid {
+    background-color: #ccc;
+    border-radius: 10px;
+    padding: 16px;
+    display: grid;
+    grid-template-rows: 30px auto;
+    gap: 16px;
+  }
+  
+  .black-bar {
+    background-color: #333;
+    height: 30px;
+    border-radius: 4px;
+  }
+  
+  .cvc-field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #eee;
+  }
+  
