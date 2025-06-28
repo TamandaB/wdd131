@@ -17,8 +17,8 @@ function changeTheme(){
         newLogo.setAttribute("src", "mission/byu-logo_white.png");
     } else{
           //change body to light Or remove dark class from body
-        document.body.className.remove('dark');
-        newLogo.style.display = "inline";
+        document.body.classList.remove('dark'); 
+          newLogo.style.display = "inline";
         newLogo2.style.display="none";
           // change logo back to original logo 
         newLogo.setAttribute("src", "mission/byu-logo_blue.webp");

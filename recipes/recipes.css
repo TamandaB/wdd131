@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #ffffff;
+  --text-dark: #212222;
+  --text-light: #ebebeb;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: 'Permanent Marker', cursive;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: var(--primary-font);
+  color: var(--text-dark);
+  background-color: #fff;
+}
+
+h2 {
+  text-align: center;
+  font-family: var(--secondary-font);
+  color: #1e90ff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  border-bottom: 1px solid #eee;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+}
+
+.logo {
+  width: 45px;
+  height: auto;
+}
+
+.logo-title h1 {
+  font-family: var(--secondary-font);
+  font-size: 2rem;
+  margin: 0;
+  color: #333;
+}
+
+.content-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  gap: 0.5rem;
+  margin: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-form button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  padding: 1rem;
+  margin: 0;
+  width: 60vw;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  text-align: center;
+}
+
+.recipe-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.recipe-card h2 {
+  margin-top: 0.5rem;
+  color: #52b8ee;
+}
+
+.category,
+.recipe-card .category {
+  color: #d2691e;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  text-transform: lowercase;
+}
+
+.recipe-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.tag {
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.rating {
+  font-size: 1.2rem;
+  color: gold;
+  margin: 0.5rem 0;
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.recipe-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Footer Styles */
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--secondary-color);
+  color: #333;
+  flex-wrap: wrap;
+}
+
+footer .social {
+  display: flex;
+  gap: 1rem;
+}
+
+footer .social a {
+  display: inline-block;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+footer .social img {
+  width: 30px;
+  height: 30px;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+/* Responsive Layouts */
+@media (min-width: 768px) {
+  .recipe-card {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .recipe-card img {
+    width: 300px;
+    flex-shrink: 0;
+  }
+
+  .recipe-content {
+    flex: 1;
+    align-items: flex-start;
+  }
+
+  .search-form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    max-width: 100%;
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Hide description on small screens */
+@media (max-width: 767px) {
+  .description {
+    display: none;
+  }
+}
