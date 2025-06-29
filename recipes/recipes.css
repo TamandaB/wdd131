@@ -24,6 +24,7 @@ h2 {
 }
 
 img {
+  aspect-ratio: 4 / 3;
   max-width: 100%;
   height: auto;
   display: block;
@@ -92,6 +93,10 @@ header {
   border: 1px solid #ccc;
   background-color: white;
   cursor: pointer;
+}
+
+.recipe {
+    min-height: 400px;
 }
 
 .recipe-card {

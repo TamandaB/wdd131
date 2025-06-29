@@ -23,7 +23,7 @@ const recipes = [
 			'1/4 C Cornmeal',
 			'1 C Flour'
 		],
-		name: 'Sweet Potato Waffles',
+        name: 'Sweet Potato Waffles',
 		prepTime: '30 Min',
 		recipeInstructions: [
 			'Add the egg yolks, oil, salt, cayenne, sugar, ginger, shallots, sweet potatoes (steam and mash before), and milk and mix well.',
@@ -278,15 +278,90 @@ const recipes = [
 		recipeYield: '12 servings',
 		rating: 4
 	}
-]
+];
 
-let button = document.querySelector('button');
-
-button.addEventListener('click', search);
-
-let randomNum = Math.floor(Math.random()* hikes.length);
-console.log(randomNum)
-
-function renderRecipe(recipelist){
-    
+function tagsTemplate(tags) {
+  return tags.map(tag => `<li>${tag}</li>`).join('');
 }
+
+function ratingTemplate(rating) {
+  let html = `<span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">`;
+  for (let i = 1; i <= 5; i++) {
+    html += i <= rating
+      ? `<span aria-hidden="true" class="icon-star">⭐</span>`
+      : `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
+  }
+  html += `</span>`;
+  return html;
+}
+
+function recipeTemplate(recipe) {
+  return `
+    <figure class="recipe">
+      <img src="${recipe.image}" alt="image of ${recipe.name} on a plate" />
+      <figcaption>
+        <ul class="recipe__tags">
+          ${tagsTemplate(recipe.tags)}
+        </ul>
+        <h2><a href="#">${recipe.name}</a></h2>
+        <p class="recipe__ratings">
+          ${ratingTemplate(recipe.rating)}
+        </p>
+        <p class="recipe__description">${recipe.description}</p>
+      </figcaption>
+    </figure>
+  `;
+}
+
+function renderRecipes(recipeList) {
+  const outputEl = document.querySelector('.content-wrapper');
+  if (!outputEl) return;
+  const htmlStrings = recipeList.map(recipe => recipeTemplate(recipe));
+  outputEl.innerHTML = htmlStrings.join('');
+}
+
+function random(num) {
+  return Math.floor(Math.random() * num);
+}
+
+function getRandomListEntry(list) {
+  const index = random(list.length);
+  return list[index];
+}
+
+function init() {
+  const recipe = getRandomListEntry(recipes);
+  renderRecipes([recipe]);
+}
+
+function filterRecipes(query) {
+  query = query.toLowerCase();
+  return recipes.filter(recipe => {
+    const inName = recipe.name.toLowerCase().includes(query);
+    const inDescription = recipe.description.toLowerCase().includes(query);
+    const inTags = recipe.tags.find(tag => tag.toLowerCase().includes(query));
+    const inIngredients = recipe.recipeIngredient.find(ing => ing.toLowerCase().includes(query));
+    return inName || inDescription || inTags || inIngredients;
+  }).sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function searchHandler(e) {
+  e.preventDefault();
+  const searchInput = document.querySelector('#search input');
+  if (!searchInput) return;
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) {
+    init();
+    return;
+  }
+  const filtered = filterRecipes(query);
+  renderRecipes(filtered);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  init();
+  const searchButton = document.querySelector('#search img');
+  if (searchButton) {
+    searchButton.addEventListener('click', searchHandler);
+  }
+});
