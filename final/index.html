@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Places I Want to Visit</title>
+  <link rel="stylesheet" href="vacation.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="dream.html">Top 10 Destinations</a>
+   </nav>
+
+   <div class="logo-container">
+      <img src="images/logo.png" alt="Site Logo" class="site-logo">
+  </div>
+  <h1>🌍 Places I Want to Visit</h1>
+  <hr />
+
+  <div id="map" style="height: 400px;"></div>
+
+  <p class="custom-paragraph">
+    Welcome to the dream website, we are here to help you create make dreams come true.
+    track destinations of your dream summer vaction. Your choice will be pined on the world map and build a travel wish list.
+  </p>
+
+  <div class="form-container">
+    <h2>Add a Place</h2>
+    <form id="place-form">
+      <input type="text" id="city" placeholder="City" required />
+      <input type="text" id="country" placeholder="Country" required />
+      <textarea id="note" placeholder="Why do you want to visit?" required></textarea>
+      <button type="submit">Add Place</button>
+    </form>
+  </div>
+
+  <div class="place-list">
+    <h2>My Travel List</h2>
+    <ul id="place-list"></ul>
+  </div>
+  <hr>
+
+  <footer>
+    <p>Dry Oar © 20XX - Tamanda Banda</p>
+    <p><a href="site-plan.html">Site Plan</a></p>
+    <p><a href="contactus.html">Contact Us</a></p>
+    <div class="social">
+      <a href="https://facebook.com" target="_blank">
+        <img src="images/facebook.png" alt="Facebook icon">
+      </a>
+      <a href="https://twitter.com" target="_blank">
+        <img src="images/twitter.png" alt="Twitter icon">
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <img src="images/instagram.png" alt="Instagram icon">
+      </a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="vacation.js"></script>
+</body>
+</html>
