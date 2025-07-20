@@ -7,7 +7,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const form = document.getElementById('place-form');
 const placeList = document.getElementById('place-list');
 
-// Load places from localStorage
 const savedPlaces = JSON.parse(localStorage.getItem('places')) || [];
 savedPlaces.forEach(place => addPlaceToList(place, false));
 
@@ -26,12 +25,11 @@ form.addEventListener('submit', function (e) {
 });
 
 function addPlaceToList(place, save) {
-  // Add to list
+
   const li = document.createElement('li');
   li.innerHTML = `<strong>${place.city}, ${place.country}</strong><br>${place.note}`;
   placeList.appendChild(li);
 
-  // Use OpenStreetMap to geocode (simple version)
   fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${place.city},${place.country}`)
     .then(res => res.json())
     .then(data => {
@@ -46,7 +44,6 @@ function addPlaceToList(place, save) {
       }
     });
 
-  // Save to localStorage
   if (save) {
     savedPlaces.push(place);
     localStorage.setItem('places', JSON.stringify(savedPlaces));
